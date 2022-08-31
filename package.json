@@ -1,0 +1,71 @@
+{
+  "name": "@nmastroviti/github-actions-serverless",
+  "version": "1.0.0",
+  "description": "GitHub Actions Serverless",
+  "author": "Nicolas Mastroviti <nmastroviti@gmail.com>",
+  "scripts": {
+    "domain:create": "npx dotenv -e .env.test -- npx serverless create_domain --stage test",
+    "build:local": "npx serverless webpack --stage local",
+    "build:test": "npx serverless webpack --stage test",
+    "build:production": "npx serverless webpack --stage production",
+    "deploy:offline": "node --inspect=localhost:9240 node_modules/.bin/serverless offline --stage local",
+    "deploy:test": "npx serverless deploy --stage test",
+    "deploy:staging": "npx serverless deploy --stage staging",
+    "deploy:production": "npx serverless deploy --stage production",
+    "release": "semantic-release",
+    "test": "jest --detectOpenHandles",
+    "lint": "npx eslint . --ext .js",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier:fix": "npx prettier --write src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmastroviti/github-actions-serverless.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nmastroviti/github-actions-serverless/issues"
+  },
+  "homepage": "https://github.com/nmastroviti/github-actions-serverless#readme",
+  "dependencies": {
+    "@vendia/serverless-express": "^4.10.1",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/preset-env": "^7.18.10",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@eclass/semantic-release-sentry-releases": "^3.0.0",
+    "@google/semantic-release-replace-plugin": "^1.1.0",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "babel-jest": "^29.0.1",
+    "babel-loader": "^8.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "dotenv-cli": "^6.0.0",
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-webpack": "^0.13.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.0.1",
+    "jest": "^29.0.1",
+    "prettier": "^2.7.1",
+    "semantic-release": "^19.0.5",
+    "serverless": "^3.21.0",
+    "serverless-deployment-bucket": "^1.6.0",
+    "serverless-domain-manager": "^6.1.0",
+    "serverless-offline": "^9.2.6",
+    "serverless-webpack": "^5.9.0",
+    "serverless-webpack-prisma": "^1.1.0",
+    "supertest": "^6.2.4",
+    "webpack": "^5.74.0",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "engines": {
+    "node": "16.15.0",
+    "npm": "8.5.5"
+  },
+  "packageManager": "npm@8.5.5"
+}

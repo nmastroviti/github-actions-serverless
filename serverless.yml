@@ -1,0 +1,43 @@
+service: talk-api-service
+useDotenv: true
+
+plugins:
+  - serverless-webpack
+  - serverless-deployment-bucket
+  - serverless-offline
+
+package:
+  individually: true
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: ${opt:stage}
+  deploymentBucket:
+    name: ${self:service}-${opt:stage}-deployment-bucket
+  apiGateway:
+    shouldStartNameWithService: true
+    apiKeys:
+      - name: ${env:SUBDOMAIN}-apiKey
+        value: ${env:DEFAULT_API_KEY}
+  environment:
+    SUBDOMAIN: ${env:SUBDOMAIN}
+    DEFAULT_API_KEY: ${env:DEFAULT_API_KEY}
+    JWT_SECRET: ${env:JWT_SECRET}
+
+custom:
+  serverless-offline:
+    apiKey: ${env:DEFAULT_API_KEY}
+    httpPort: ${env:SERVERLESS_OFFLINE_HTTP_PORT, 8001}
+    lambdaPort: ${env:SERVERLESS_OFFLINE_LAMBDA_PORT, 3001}
+  webpack:
+    includeModules: true
+
+functions:
+  listUsers:
+    handler: src/index.listUsersHandler
+    events:
+      - http:
+          path: /users
+          method: get
+          private: true
