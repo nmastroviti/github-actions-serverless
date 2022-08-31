@@ -36,7 +36,7 @@ functions:
   listUsers:
     handler: src/index.listUsersHandler
     events:
-      - http:
+      - httpApi:
           path: /users
-          method: get
+          method: GET
           private: true
