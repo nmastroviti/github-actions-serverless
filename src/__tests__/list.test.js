@@ -1,5 +1,5 @@
 import supertest from 'supertest'
-import { app as listUsers } from './list'
+import { app as listUsers } from '../list'
 
 const request = supertest(listUsers)
 
