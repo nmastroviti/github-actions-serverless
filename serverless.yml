@@ -23,7 +23,6 @@ provider:
   environment:
     SUBDOMAIN: ${env:SUBDOMAIN}
     DEFAULT_API_KEY: ${env:DEFAULT_API_KEY}
-    JWT_SECRET: ${env:JWT_SECRET}
 
 custom:
   serverless-offline:

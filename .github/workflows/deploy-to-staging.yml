@@ -57,11 +57,9 @@ jobs:
         env:
           SUBDOMAIN: ${{ secrets.SUBDOMAIN_STAGING }}
           DEFAULT_API_KEY: ${{ secrets.API_SERVICE_API_KEY_STAGING }}
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
       - id: do-staging-deploy
         name: Deploy
         run: npm run deploy:staging
         env:
           SUBDOMAIN: ${{ secrets.SUBDOMAIN_STAGING }}
           DEFAULT_API_KEY: ${{ secrets.API_SERVICE_API_KEY_STAGING }}
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}

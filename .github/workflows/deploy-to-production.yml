@@ -39,7 +39,6 @@ jobs:
         env:
           SUBDOMAIN: ${{ secrets.SUBDOMAIN }}
           DEFAULT_API_KEY: ${{ secrets.API_SERVICE_API_KEY }}
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
       - id: do-github-release
         name: Release
         run: npm run release
@@ -51,4 +50,3 @@ jobs:
         env:
           SUBDOMAIN: ${{ secrets.SUBDOMAIN }}
           DEFAULT_API_KEY: ${{ secrets.API_SERVICE_API_KEY }}
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}

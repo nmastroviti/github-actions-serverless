@@ -35,4 +35,3 @@ jobs:
         env:
           SUBDOMAIN: ${{ secrets.SUBDOMAIN_TEST }}
           DEFAULT_API_KEY: ${{ secrets.API_SERVICE_API_KEY_TEST }}
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
