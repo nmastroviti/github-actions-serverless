@@ -4,7 +4,6 @@
   "description": "GitHub Actions Serverless",
   "author": "Nicolas Mastroviti <nmastroviti@gmail.com>",
   "scripts": {
-    "domain:create": "npx dotenv -e .env.test -- npx serverless create_domain --stage test",
     "build:local": "npx serverless webpack --stage local",
     "build:test": "npx serverless webpack --stage test",
     "build:production": "npx serverless webpack --stage production",
@@ -13,7 +12,7 @@
     "deploy:staging": "npx serverless deploy --stage staging",
     "deploy:production": "npx serverless deploy --stage production",
     "release": "semantic-release",
-    "test": "jest --detectOpenHandles",
+    "test": "jest",
     "lint": "npx eslint . --ext .js",
     "lint:fix": "npm run lint -- --fix",
     "prettier:fix": "npx prettier --write src/"
@@ -35,7 +34,6 @@
     "@babel/preset-env": "^7.18.10",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@eclass/semantic-release-sentry-releases": "^3.0.0",
     "@google/semantic-release-replace-plugin": "^1.1.0",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
@@ -58,7 +56,6 @@
     "serverless-domain-manager": "^6.1.0",
     "serverless-offline": "^9.2.6",
     "serverless-webpack": "^5.9.0",
-    "serverless-webpack-prisma": "^1.1.0",
     "supertest": "^6.2.4",
     "webpack": "^5.74.0",
     "webpack-node-externals": "^3.0.0"
